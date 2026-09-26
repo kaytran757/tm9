@@ -19,7 +19,9 @@ import BranchesPage from '@/pages/BranchesPage';
 import ThuVienPage from '@/pages/ThuVienPage';
 import DichTenPage from '@/pages/DichTenPage';
 import PinyinPage from '@/pages/PinyinPage';
-import PlaceholderArticle from '@/pages/PlaceholderArticle';
+import DeThiHsk1Page from '@/pages/DeThiHsk1Page';
+import NguPhapHsk1Page from '@/pages/NguPhapHsk1Page';
+import ThanhNguPage from '@/pages/ThanhNguPage';
 
 function HomePage() {
   return (
@@ -86,11 +88,11 @@ export default function App() {
       ) : isPinyinArticle ? (
         <PinyinPage />
       ) : isDeThiHsk1Article ? (
-        <PlaceholderArticle title="Đề Thi HSK 1 Mới Nhất Có Đáp Án, File PDF Và File Nghe" route="/thu-vien/de-thi-hsk1" />
+        <DeThiHsk1Page />
       ) : isNguPhapHsk1Article ? (
-        <PlaceholderArticle title="Tổng Hợp Ngữ Pháp Tiếng Trung HSK1 Kèm File PDF" route="/thu-vien/ngu-phap-hsk1" />
+        <NguPhapHsk1Page />
       ) : isThanhNguArticle ? (
-        <PlaceholderArticle title="100 Câu Thành Ngữ Tiếng Trung Hay Và Thông Dụng Nhất" route="/thu-vien/thanh-ngu-tieng-trung" />
+        <ThanhNguPage />
       ) : isThuVienIndex ? (
         <ThuVienPage />
       ) : isTreEmPage ? (
