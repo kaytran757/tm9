@@ -85,13 +85,13 @@ function GoldDivider() {
   );
 }
 
-function ArticleGrid() {
+function ArticleList() {
   return (
     <section className="relative overflow-hidden bg-brand-cream px-6 py-20 sm:py-28">
       <div className="pointer-events-none absolute -left-10 top-10 select-none font-display text-[16rem] leading-none text-brand-red/[0.04] sm:text-[20rem]" aria-hidden="true">
         书
       </div>
-      <div className="relative z-10 mx-auto max-w-6xl">
+      <div className="relative z-10 mx-auto max-w-5xl">
         <div className="mx-auto max-w-3xl text-center">
           <p className="mb-4 font-sans text-xs uppercase tracking-[0.3em] text-[#BA7517]">
             Bài viết hữu ích
@@ -108,27 +108,34 @@ function ArticleGrid() {
           <GoldDivider />
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        {/* Vertical article list */}
+        <div className="divide-y divide-brand-gold/25">
           {articles.map((article) => (
-            <article
+            <a
               key={article.route}
-              className="group flex flex-col overflow-hidden rounded-xl border border-[#BA7517]/30 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[#BA7517]/60 hover:shadow-lg"
+              href={article.route}
+              className="group block rounded-lg py-8 transition-colors duration-300 hover:bg-brand-gold/5 sm:py-10"
             >
-              <a href={article.route} className="flex flex-1 flex-col">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
+              <div className="flex flex-col gap-6 px-2 sm:px-4 md:flex-row md:items-center md:gap-8">
+                {/* Thumbnail */}
+                <div className="relative w-full shrink-0 overflow-hidden rounded-lg border border-brand-gold/50 sm:w-full md:w-[32%]">
+                  <div className="aspect-[4/3] w-full overflow-hidden rounded-lg">
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
                   <div className="absolute bottom-0 left-0 h-1.5 w-full bg-gradient-to-r from-[#FAC775] via-[#FDE4B0] to-[#FAC775]" />
                 </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="font-display text-xl leading-snug text-brand-red sm:text-2xl">
+
+                {/* Text content */}
+                <div className="flex flex-1 flex-col">
+                  <h3 className="font-display text-xl leading-snug text-brand-red transition-colors duration-300 group-hover:text-brand-gold-deep sm:text-2xl lg:text-3xl">
                     {article.title}
                   </h3>
-                  <p className="mt-3 line-clamp-2 font-sans text-sm leading-relaxed text-gray-600">
+                  <p className="mt-3 line-clamp-2 font-sans text-sm leading-relaxed text-gray-600 sm:text-base">
                     {article.teaser}
                   </p>
                   <span className="mt-5 inline-flex items-center gap-1.5 self-start font-sans text-sm font-semibold text-[#BA7517] transition-colors group-hover:text-brand-red">
@@ -136,12 +143,9 @@ function ArticleGrid() {
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
-              </a>
-            </article>
+              </div>
+            </a>
           ))}
-
-          {/* Filler card for grid alignment — hidden on mobile */}
-          <div className="hidden lg:block" aria-hidden="true" />
         </div>
       </div>
     </section>
@@ -153,7 +157,7 @@ export default function ThuVienPage() {
     <div className="relative w-full">
       <ThuVienHero />
       <div className="h-[130px] bg-brand-cream sm:h-[170px] md:h-[200px]" aria-hidden="true" />
-      <ArticleGrid />
+      <ArticleList />
       <CtaSection
         enableFadeIn={false}
         label="Bắt đầu hành trình của bạn"

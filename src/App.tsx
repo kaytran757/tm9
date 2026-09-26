@@ -18,6 +18,7 @@ import TreEmCoursePage from '@/pages/TreEmCoursePage';
 import BranchesPage from '@/pages/BranchesPage';
 import ThuVienPage from '@/pages/ThuVienPage';
 import DichTenPage from '@/pages/DichTenPage';
+import PinyinPage from '@/pages/PinyinPage';
 import PlaceholderArticle from '@/pages/PlaceholderArticle';
 
 function HomePage() {
@@ -83,7 +84,7 @@ export default function App() {
       ) : isDichTenArticle ? (
         <DichTenPage />
       ) : isPinyinArticle ? (
-        <PlaceholderArticle title="Bảng Chữ Cái Tiếng Trung Pinyin Đầy Đủ Cho Người Mới Bắt Đầu" route="/thu-vien/bang-chu-cai-pinyin" />
+        <PinyinPage />
       ) : isDeThiHsk1Article ? (
         <PlaceholderArticle title="Đề Thi HSK 1 Mới Nhất Có Đáp Án, File PDF Và File Nghe" route="/thu-vien/de-thi-hsk1" />
       ) : isNguPhapHsk1Article ? (
