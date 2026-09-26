@@ -16,6 +16,9 @@ import DoanhNghiepCoursePage from '@/pages/DoanhNghiepCoursePage';
 import TrucTuyenCoursePage from '@/pages/TrucTuyenCoursePage';
 import TreEmCoursePage from '@/pages/TreEmCoursePage';
 import BranchesPage from '@/pages/BranchesPage';
+import ThuVienPage from '@/pages/ThuVienPage';
+import DichTenPage from '@/pages/DichTenPage';
+import PlaceholderArticle from '@/pages/PlaceholderArticle';
 
 function HomePage() {
   return (
@@ -56,6 +59,13 @@ export default function App() {
   const isTrucTuyenPage = pathname === '/khoa-hoc/han-ngu-tich-hop-truc-tuyen';
   const isTreEmPage = pathname === '/khoa-hoc/tre-em';
   const isBranchesPage = pathname === '/chi-nhanh';
+  const isThuVienIndex = pathname === '/thu-vien';
+  const isDichTenArticle = pathname === '/thu-vien/dich-ten-tieng-viet-sang-tieng-trung';
+  const isPinyinArticle = pathname === '/thu-vien/bang-chu-cai-pinyin';
+  const isDeThiHsk1Article = pathname === '/thu-vien/de-thi-hsk1';
+  const isNguPhapHsk1Article = pathname === '/thu-vien/ngu-phap-hsk1';
+  const isThanhNguArticle = pathname === '/thu-vien/thanh-ngu-tieng-trung';
+  const isArticlePage = pathname.startsWith('/thu-vien/');
 
   useEffect(() => {
     if (!isIntroductionPage || !window.location.hash) return;
@@ -70,6 +80,18 @@ export default function App() {
     <>
       {isBranchesPage ? (
         <BranchesPage />
+      ) : isDichTenArticle ? (
+        <DichTenPage />
+      ) : isPinyinArticle ? (
+        <PlaceholderArticle title="Bảng Chữ Cái Tiếng Trung Pinyin Đầy Đủ Cho Người Mới Bắt Đầu" route="/thu-vien/bang-chu-cai-pinyin" />
+      ) : isDeThiHsk1Article ? (
+        <PlaceholderArticle title="Đề Thi HSK 1 Mới Nhất Có Đáp Án, File PDF Và File Nghe" route="/thu-vien/de-thi-hsk1" />
+      ) : isNguPhapHsk1Article ? (
+        <PlaceholderArticle title="Tổng Hợp Ngữ Pháp Tiếng Trung HSK1 Kèm File PDF" route="/thu-vien/ngu-phap-hsk1" />
+      ) : isThanhNguArticle ? (
+        <PlaceholderArticle title="100 Câu Thành Ngữ Tiếng Trung Hay Và Thông Dụng Nhất" route="/thu-vien/thanh-ngu-tieng-trung" />
+      ) : isThuVienIndex ? (
+        <ThuVienPage />
       ) : isTreEmPage ? (
         <TreEmCoursePage />
       ) : isTrucTuyenPage ? (
@@ -83,7 +105,7 @@ export default function App() {
       ) : (
         <HomePage />
       )}
-      <FloatingContact />
+      {!isArticlePage && <FloatingContact />}
     </>
   );
 }

@@ -3,7 +3,7 @@ import { Menu, Phone, X, ChevronDown } from 'lucide-react';
 
 const navLinks = [
   { label: 'Chi Nhánh', href: '/chi-nhanh' },
-  { label: 'Thư Viện', href: '#thu-vien' },
+  { label: 'Thư Viện', href: '/thu-vien' },
 ];
 
 const introSubLinks = [
