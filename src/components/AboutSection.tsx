@@ -136,7 +136,7 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section id="gioi-thieu" className="relative overflow-hidden bg-brand-cream px-6 pb-28 pt-20 sm:pb-32 sm:pt-28">
+    <section id="gioi-thieu" className="relative overflow-hidden bg-brand-cream px-6 pb-52 pt-20 sm:pb-56 sm:pt-28">
       {/* ─── BLOCK 1: INTRODUCTION ─── */}
       <div className="relative z-20 mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
