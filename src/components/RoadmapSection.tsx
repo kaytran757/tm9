@@ -50,7 +50,7 @@ export default function RoadmapSection() {
       </div>
       <div className="absolute -left-12 bottom-0 h-px w-48 bg-brand-gold/25" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto max-w-6xl">
+      <div className="relative z-20 mx-auto max-w-6xl">
         <div
           ref={headerRef}
           className={`mx-auto max-w-3xl text-center ${revealTransition} ${revealClass(headerVisible)}`}

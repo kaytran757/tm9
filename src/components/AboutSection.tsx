@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { useScrollReveal, revealClass, revealTransition } from '@/hooks/useScrollReveal';
+import RoundelDivider from '@/components/RoundelDivider';
 
 /* ─── Brush-style checkmark icon ─── */
 function BrushCheck() {
@@ -135,9 +136,9 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section id="gioi-thieu" className="relative bg-brand-cream py-20 sm:py-28 px-6">
+    <section id="gioi-thieu" className="relative overflow-hidden bg-brand-cream px-6 pb-28 pt-20 sm:pb-32 sm:pt-28">
       {/* ─── BLOCK 1: INTRODUCTION ─── */}
-      <div className="max-w-6xl mx-auto">
+      <div className="relative z-20 mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
           {/* Left: text content */}
           <div
@@ -203,7 +204,7 @@ export default function AboutSection() {
       </div>
 
       {/* ─── BLOCK 2: DIFFERENTIATORS & STATS ─── */}
-      <div ref={statsRef} className="max-w-4xl mx-auto mt-24 sm:mt-32">
+      <div ref={statsRef} className="relative z-20 mx-auto mt-24 max-w-4xl sm:mt-32">
         <GoldDivider />
 
         <div className="text-center">
@@ -248,6 +249,7 @@ export default function AboutSection() {
           />
         </div>
       </div>
+      <RoundelDivider />
     </section>
   );
 }
